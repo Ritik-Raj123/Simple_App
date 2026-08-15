@@ -1,0 +1,20 @@
+name: Simple App CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check-files:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check index.html
+        run: test -f index.html
+
+      - name: Check style.css
+        run: test -f style.css
